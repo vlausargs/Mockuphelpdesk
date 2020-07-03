@@ -1,0 +1,346 @@
+<!--This template is based on: https://dribbble.com/shots/6531694-Marketing-Dashboard by Gregoire Vella -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tailwind Starter Template - Minimal Admin Template: Tailwind Toolbox</title>
+    <meta name="description" content="description here">
+    <meta name="keywords" content="keywords,here">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <!--Replace with your tailwind.css once created-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+
+    <style>
+        .nunito {
+            font-family: 'nunito', font-sans;
+        }
+
+        .border-b-1 {
+            border-bottom-width: 1px;
+        }
+
+        .border-l-1 {
+            border-left-width: 1px;
+        }
+
+        hover\:border-none:hover {
+            border-style: none;
+        }
+
+        #sidebar {
+            transition: ease-in-out all .3s;
+            z-index: 9999;
+        }
+
+        #sidebar span {
+            opacity: 0;
+            position: absolute;
+            transition: ease-in-out all .1s;
+        }
+
+        #sidebar:hover {
+            width: 150px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            /*shadow-2xl*/
+        }
+
+        #sidebar:hover span {
+            opacity: 1;
+        }
+    </style>
+
+</head>
+
+<body class="flex h-screen bg-gray-100 font-sans">
+
+    <!-- Side bar-->
+    <div id="sidebar"
+        class="h-screen w-16 menu bg-gray-800 text-white px-4 flex items-center nunito static fixed shadow">
+
+        <ul class="list-reset ">
+            <li class="my-2 md:my-0">
+                <a href="#"
+                    class="block py-1 md:py-3 pl-1 align-middle text-gray-400 no-underline hover:text-indigo-400">
+                    <svg class="fas fa-fw mr-3" width="20" height="20" viewBox="0 0 50 50" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M44.4444 5.55556V11.1111H33.3333V5.55556H44.4444ZM16.6667 5.55556V22.2222H5.55556V5.55556H16.6667ZM44.4444 27.7778V44.4444H33.3333V27.7778H44.4444ZM16.6667 38.8889V44.4444H5.55556V38.8889H16.6667ZM50 0H27.7778V16.6667H50V0ZM22.2222 0H0V27.7778H22.2222V0ZM50 22.2222H27.7778V50H50V22.2222ZM22.2222 33.3333H0V50H22.2222V33.3333Z"
+                            fill="white" />
+                    </svg>
+                    <span class="w-full inline-block pb-1 md:pb-0 text-sm">Dashboard</span>
+                </a>
+            </li>
+            <li class="my-2 md:my-0 ">
+                <a href="#"
+                    class="block py-1 md:py-3 pl-1 align-middle text-gray-400 no-underline hover:text-indigo-400">
+
+                    <svg class="fas fa-tasks fa-fw mr-3" width="20" height="20" viewBox="0 0 50 50" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M48.2143 20C48.6879 20 49.1421 19.7366 49.477 19.2678C49.8119 18.7989 50 18.163 50 17.5V5C50 3.67392 49.6237 2.40215 48.954 1.46447C48.2842 0.526784 47.3758 0 46.4286 0H3.57143C2.62423 0 1.71582 0.526784 1.04605 1.46447C0.376274 2.40215 0 3.67392 0 5V17.5C0 18.163 0.188137 18.7989 0.523023 19.2678C0.85791 19.7366 1.31211 20 1.78571 20C2.73292 20 3.64132 20.5268 4.3111 21.4645C4.98087 22.4021 5.35714 23.6739 5.35714 25C5.35714 26.3261 4.98087 27.5979 4.3111 28.5355C3.64132 29.4732 2.73292 30 1.78571 30C1.31211 30 0.85791 30.2634 0.523023 30.7322C0.188137 31.2011 0 31.837 0 32.5V45C0 46.3261 0.376274 47.5979 1.04605 48.5355C1.71582 49.4732 2.62423 50 3.57143 50H46.4286C47.3758 50 48.2842 49.4732 48.954 48.5355C49.6237 47.5979 50 46.3261 50 45V32.5C50 31.837 49.8119 31.2011 49.477 30.7322C49.1421 30.2634 48.6879 30 48.2143 30C47.2671 30 46.3587 29.4732 45.6889 28.5355C45.0191 27.5979 44.6429 26.3261 44.6429 25C44.6429 23.6739 45.0191 22.4021 45.6889 21.4645C46.3587 20.5268 47.2671 20 48.2143 20ZM46.4286 34.675V45H33.9286V37.5H30.3571V45H3.57143V34.675C5.09999 34.1157 6.45297 32.8626 7.41861 31.112C8.38425 29.3613 8.90806 27.2119 8.90806 25C8.90806 22.7881 8.38425 20.6387 7.41861 18.888C6.45297 17.1374 5.09999 15.8843 3.57143 15.325V5H30.3571V12.5H33.9286V5H46.4286V15.325C44.9 15.8843 43.547 17.1374 42.5814 18.888C41.6157 20.6387 41.0919 22.7881 41.0919 25C41.0919 27.2119 41.6157 29.3613 42.5814 31.112C43.547 32.8626 44.9 34.1157 46.4286 34.675Z"
+                            fill="white" />
+                    </svg>
+                    <span class="w-full inline-block pb-1 md:pb-0 text-sm">Ticket</span>
+                </a>
+            </li>
+
+            <li class="my-2 md:my-0">
+                <a href="#"
+                    class="block py-1 md:py-3 pl-1 align-middle text-gray-400 no-underline hover:text-indigo-400">
+
+                    <svg class="fas fa-chart-area fa-fw mr-3 text-indigo-400" width="20" height="20" viewBox="0 0 50 52"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M0 0.541016H38.1071C40.7309 0.541016 42.8571 2.82156 42.8571 5.59478V46.2788C42.8571 49.0698 40.7309 51.3326 38.1071 51.3326H0V0.541016ZM9.52381 5.62017H4.7619V46.2534H9.52381V5.62017ZM14.2857 46.2534H38.0952V5.62017H14.2857V46.2534ZM19.0476 36.0951C19.0476 34.0745 19.8002 32.1366 21.1397 30.7078C22.4793 29.2791 24.2961 28.4764 26.1905 28.4764C28.0849 28.4764 29.9017 29.2791 31.2412 30.7078C32.5808 32.1366 33.3333 34.0745 33.3333 36.0951H19.0476ZM26.1905 25.9368C24.9275 25.9368 23.7163 25.4017 22.8233 24.4491C21.9303 23.4966 21.4286 22.2047 21.4286 20.8576C21.4286 19.5106 21.9303 18.2187 22.8233 17.2661C23.7163 16.3136 24.9275 15.7785 26.1905 15.7785C27.4534 15.7785 28.6646 16.3136 29.5576 17.2661C30.4507 18.2187 30.9524 19.5106 30.9524 20.8576C30.9524 22.2047 30.4507 23.4966 29.5576 24.4491C28.6646 25.4017 27.4534 25.9368 26.1905 25.9368ZM45.2381 10.6993H50V20.8576H45.2381V10.6993ZM45.2381 25.9368H50V36.0951H45.2381V25.9368Z"
+                            fill="white" />
+                    </svg>
+
+                    <span class="w-full inline-block pb-1 md:pb-0 text-sm">Customer</span>
+                </a>
+            </li>
+            <li class="my-2 md:my-0">
+                <a href="#"
+                    class="block py-1 md:py-3 pl-1 align-middle text-gray-400 no-underline hover:text-indigo-400">
+                    <svg class="fa fa-wallet fa-fw mr-3" width="20" height="20" viewBox="0 0 50 52" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M45.2224 27.6648V26.2823V24.8815L48.7538 21.8254C49.4047 21.2579 49.8319 20.4811 49.9598 19.6322C50.0877 18.7834 49.9081 17.9171 49.4527 17.1866L45.112 9.91005C44.7895 9.35751 44.3257 8.89857 43.7672 8.57928C43.2087 8.25999 42.5752 8.09157 41.9301 8.09091C41.5303 8.08788 41.1327 8.14933 40.753 8.27283L36.2835 9.76452C35.5119 9.25736 34.707 8.80157 33.8741 8.40017L32.9361 3.81595C32.7679 2.97843 32.3072 2.2261 31.6347 1.69066C30.9622 1.15522 30.1207 0.870782 29.2575 0.887143H20.6498C19.7866 0.870782 18.9451 1.15522 18.2726 1.69066C17.6001 2.2261 17.1394 2.97843 16.9712 3.81595L16.0332 8.40017C15.1944 8.80147 14.3833 9.25725 13.6054 9.76452L9.22791 8.20006C8.84405 8.10114 8.44654 8.06429 8.05078 8.09091C7.4057 8.09157 6.77214 8.25999 6.21365 8.57928C5.65516 8.89857 5.19139 9.35751 4.86885 9.91005L0.528176 17.1866C0.0988673 17.916 -0.0606622 18.7704 0.0769105 19.6034C0.214483 20.4364 0.640598 21.1962 1.28228 21.7526L4.75849 24.8997V27.683L1.28228 30.7391C0.622473 31.2994 0.184703 32.0728 0.0466534 32.922C-0.0913961 33.7712 0.0792034 34.6413 0.528176 35.3779L4.86885 42.6545C5.19139 43.207 5.65516 43.6659 6.21365 43.9852C6.77214 44.3045 7.4057 44.4729 8.05078 44.4736C8.45055 44.4766 8.84814 44.4152 9.22791 44.2917L13.6973 42.8C14.469 43.3072 15.2739 43.7629 16.1068 44.1643L17.0448 48.7486C17.213 49.5861 17.6737 50.3384 18.3462 50.8738C19.0187 51.4093 19.8602 51.6937 20.7233 51.6774H29.4047C30.2679 51.6937 31.1093 51.4093 31.7819 50.8738C32.4544 50.3384 32.915 49.5861 33.0832 48.7486L34.0212 44.1643C34.8601 43.763 35.6711 43.3073 36.4491 42.8L40.9001 44.2917C41.2799 44.4152 41.6775 44.4766 42.0772 44.4736C42.7223 44.4729 43.3559 44.3045 43.9144 43.9852C44.4729 43.6659 44.9366 43.207 45.2592 42.6545L49.4527 35.3779C49.882 34.6485 50.0415 33.7941 49.904 32.9611C49.7664 32.1281 49.3403 31.3683 48.6986 30.8119L45.2224 27.6648ZM41.9301 40.8353L35.6214 38.7251C34.1446 39.9623 32.4568 40.9295 30.637 41.5812L29.3311 48.1119H20.6498L19.3439 41.6539C17.5385 40.9837 15.8598 40.0183 14.3779 38.7979L8.05078 40.8353L3.71011 33.5588L8.71292 29.1929C8.37283 27.3098 8.37283 25.382 8.71292 23.499L3.71011 19.0057L8.05078 11.7292L14.3595 13.8394C15.8363 12.6022 17.5241 11.635 19.3439 10.9833L20.6498 4.45265H29.3311L30.637 10.9106C32.4424 11.5808 34.1211 12.5462 35.603 13.7666L41.9301 11.7292L46.2708 19.0057L41.268 23.3716C41.608 25.2547 41.608 27.1825 41.268 29.0655L46.2708 33.5588L41.9301 40.8353Z"
+                            fill="white" />
+                        <path
+                            d="M24.9907 37.197C22.8081 37.197 20.6744 36.5569 18.8596 35.3576C17.0448 34.1582 15.6304 32.4536 14.7951 30.4592C13.9599 28.4647 13.7413 26.2701 14.1671 24.1529C14.5929 22.0356 15.644 20.0908 17.1873 18.5643C18.7307 17.0378 20.6971 15.9983 22.8377 15.5772C24.9784 15.156 27.1973 15.3722 29.2138 16.1983C31.2303 17.0244 32.9539 18.4234 34.1665 20.2183C35.3791 22.0132 36.0263 24.1235 36.0263 26.2822C36.0411 27.7196 35.7657 29.1455 35.2163 30.4764C34.667 31.8072 33.8546 33.0162 32.8269 34.0327C31.7992 35.0492 30.5768 35.8526 29.2312 36.3959C27.8857 36.9393 26.444 37.2116 24.9907 37.197ZM24.9907 19.0057C24.0184 18.9833 23.0515 19.1562 22.1487 19.514C21.2458 19.8717 20.4258 20.4069 19.738 21.0871C19.0503 21.7673 18.5092 22.5784 18.1475 23.4713C17.7858 24.3643 17.611 25.3205 17.6336 26.2822C17.611 27.2439 17.7858 28.2002 18.1475 29.0931C18.5092 29.9861 19.0503 30.7972 19.738 31.4774C20.4258 32.1576 21.2458 32.6928 22.1487 33.0505C23.0515 33.4083 24.0184 33.5812 24.9907 33.5588C25.963 33.5812 26.9299 33.4083 27.8327 33.0505C28.7355 32.6928 29.5556 32.1576 30.2434 31.4774C30.9311 30.7972 31.4722 29.9861 31.8339 29.0931C32.1956 28.2002 32.3704 27.2439 32.3478 26.2822C32.3704 25.3205 32.1956 24.3643 31.8339 23.4713C31.4722 22.5784 30.9311 21.7673 30.2434 21.0871C29.5556 20.4069 28.7355 19.8717 27.8327 19.514C26.9299 19.1562 25.963 18.9833 24.9907 19.0057Z"
+                            fill="white" />
+                    </svg>
+                    <span class="w-full inline-block pb-1 md:pb-0 text-sm">Setting</span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="flex flex-row flex-wrap flex-1 flex-grow content-start pl-16">
+
+        <div class="h-40 lg:h-20 w-full flex flex-wrap">
+            <nav id="header"
+                class="bg-gray-200 w-full lg:max-w-sm flex items-center border-b-1 border-gray-300 order-2 lg:order-1">
+
+                <div class="px-2 w-full">
+                    <select name=""
+                        class="bg-gray-300 border-2 border-gray-200 rounded-lg w-full py-3 px-4 text-gray-500 font-bold leading-tight focus:outline-none focus:bg-white focus:shadow-md"
+                        id="form-field2">
+                        <option value="Default">default</option>
+                        <option value="A">report a</option>
+                        <option value="B">report b</option>
+                        <option value="C">report c</option>
+                    </select>
+                </div>
+
+            </nav>
+            <nav id="header1" class="bg-gray-100 w-auto flex-1 border-b-1 border-gray-300 order-1 lg:order-2">
+
+                <div class="flex h-full justify-end items-center">
+
+                    <!--Search-->
+                    <div class="relative w-full max-w-sm px-6 ">
+                        <div class="block absolute h-full mt-1 left-0 top-0 flex items-center pl-48">
+
+                            <div
+                                class="block w-full  focus:outline-none focus:bg-white focus:shadow-md text-gray-900 font-bold rounded-full pl-10 pr-4 py-3">
+                                <i class="far fa-plus-square "></i><span class="pb-1 md:pb-0 text-sm"> ADD
+                                    NEW TICKET</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative w-full max-w-md px-2">
+                        <div class="absolute h-10 mt-1 left-0 top-0 flex items-center pl-10">
+                            <svg class="h-4 w-4 fill-current text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z">
+                                </path>
+                            </svg>
+                        </div>
+
+                        <input id="search-toggle" type="search" placeholder="search"
+                            class="block w-full bg-gray-200 focus:outline-none focus:bg-white focus:shadow-md text-gray-700 font-bold rounded-full pl-12 pr-4 py-3"
+                            onkeyup="updateSearchResults(this.value);">
+
+                    </div>
+                    <!-- / Search-->
+
+                    <!--Menu-->
+
+                    <div class="flex relative inline-block pr-6">
+
+                        <div class="relative text-sm">
+                            <button id="userButton" class="flex items-center focus:outline-none mr-3">
+                                <img class="w-8 h-8 rounded-full mr-4" src="http://i.pravatar.cc/300"
+                                    alt="Avatar of User"> <span class="hidden md:inline-block">Hi, User </span>
+                                <svg class="pl-2 h-2" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    enable-background="new 0 0 129 129">
+                                    <g>
+                                        <path
+                                            d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </button>
+                            <div id="userMenu"
+                                class="bg-white nunito rounded shadow-md mt-2 absolute mt-12 top-0 right-0 min-w-full overflow-auto z-30 invisible">
+                                <ul class="list-reset">
+                                    <li><a href="#"
+                                            class="px-4 py-2 block text-gray-900 hover:bg-indigo-400 hover:text-white no-underline hover:no-underline">My
+                                            account</a></li>
+                                    <li><a href="#"
+                                            class="px-4 py-2 block text-gray-900 hover:bg-indigo-400 hover:text-white no-underline hover:no-underline">Notifications</a>
+                                    </li>
+                                    <li>
+                                        <hr class="border-t mx-2 border-gray-400">
+                                    </li>
+                                    <li><a href="#"
+                                            class="px-4 py-2 block text-gray-900 hover:bg-indigo-400 hover:text-white no-underline hover:no-underline">Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- / Menu -->
+
+                </div>
+
+            </nav>
+        </div>
+
+        <!--Dash Content -->
+        <div id="dash-content" class="bg-gray-200 py-6 lg:py-0 w-full lg:max-w-sm flex flex-wrap content-start">
+
+            <!-- <div class="w-1/2 lg:w-full">
+                <div
+                    class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+                    <div class="flex flex-col items-center">
+                        <div class="flex-shrink pr-4">
+                            <div class="rounded-full p-3 bg-gray-300"><i
+                                    class="fa fa-wallet fa-fw fa-inverse text-indigo-500"></i></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-3xl">$3249 <span class="text-green-500"><i
+                                        class="fas fa-caret-up"></i></span></h3>
+                            <h5 class="font-bold text-gray-500">Total Revenue</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-1/2 lg:w-full">
+                <div
+                    class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+                    <div class="flex flex-col items-center">
+                        <div class="flex-shrink pr-4">
+                            <div class="rounded-full p-3 bg-gray-300"><i
+                                    class="fas fa-users fa-fw fa-inverse text-indigo-500"></i></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-3xl">249 <span class="text-orange-500"><i
+                                        class="fas fa-exchange-alt"></i></span></h3>
+                            <h5 class="font-bold text-gray-500">Total Users</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-1/2 lg:w-full">
+                <div
+                    class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+                    <div class="flex flex-col items-center">
+                        <div class="flex-shrink pr-4">
+                            <div class="rounded-full p-3 bg-gray-300"><i
+                                    class="fas fa-user-plus fa-fw fa-inverse text-indigo-500"></i></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-3xl">2 <span class="text-yellow-600"><i
+                                        class="fas fa-caret-up"></i></span></h3>
+                            <h5 class="font-bold text-gray-500">New Users</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-1/2 lg:w-full">
+                <div
+                    class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+                    <div class="flex flex-col items-center">
+                        <div class="flex-shrink pr-4">
+                            <div class="rounded-full p-3 bg-gray-300"><i
+                                    class="fas fa-server fa-fw fa-inverse text-indigo-500"></i></div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-3xl">152 days</h3>
+                            <h5 class="font-bold text-gray-500">Server Uptime</h5>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+
+        <!--Graph Content -->
+
+
+    </div>
+
+
+    <script>
+        /*Toggle dropdown list*/
+        /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+        var userMenuDiv = document.getElementById("userMenu");
+        var userMenu = document.getElementById("userButton");
+
+        document.onclick = check;
+
+        function check(e) {
+            var target = (e && e.target) || (event && event.srcElement);
+
+            //User Menu
+            if (!checkParent(target, userMenuDiv)) {
+                // click NOT on the menu
+                if (checkParent(target, userMenu)) {
+                    // click on the link
+                    if (userMenuDiv.classList.contains("invisible")) {
+                        userMenuDiv.classList.remove("invisible");
+                    } else {
+                        userMenuDiv.classList.add("invisible");
+                    }
+                } else {
+                    // click both outside link and outside menu, hide menu
+                    userMenuDiv.classList.add("invisible");
+                }
+            }
+
+        }
+
+        function checkParent(t, elm) {
+            while (t.parentNode) {
+                if (t == elm) {
+                    return true;
+                }
+                t = t.parentNode;
+            }
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>
